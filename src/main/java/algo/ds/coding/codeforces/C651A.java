@@ -1,5 +1,10 @@
 package algo.ds.coding.codeforces;
-
+/*
+* 1. Speak less
+* 2. Court Attention All Times
+* 3. Avoid Unhappy and Unlucky
+* 4. Learn To Keep People Dependent On You (Indisposeble)
+* */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,25 +20,27 @@ public class C651A {
         br = new BufferedReader(new InputStreamReader(System.in));
         st = new StringTokenizer("");
 
-        int t = Integer.parseInt(next());
+        int a = Integer.parseInt(next());
+        int b = Integer.parseInt(next());
 
-        while (t > 0) {
-            t -= 1;
-            int n = Integer.parseInt(next());
-            int a[] = new int[n];
-            IntStream.range(0, n).forEach(i -> a[i] = Integer.parseInt(next()));
-            int runningSum = 0;
-            int maxSum = Integer.MIN_VALUE;
-            for (int i = 0; i < n; i++) {
-                runningSum += a[i];
-                if (maxSum < runningSum)
-                    maxSum = runningSum;
-                if (runningSum < 0) {
-                    runningSum = 0;
-                }
+        int count = 0;
+
+        while (a > 0 && b > 0) {
+            if (a > b) {
+                a -= 2;
+                b += 1;
+                if(a < 0) break;
+            } else {
+                a += 1;
+                b -= 2;
+                if(b < 0) break;
             }
-            System.out.println(maxSum);
+           // System.out.println(a+" "+b);
+            count++;
         }
+
+        System.out.println(count);
+
     }
 
     public static String next() {
